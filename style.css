@@ -1,0 +1,212 @@
+<style media="screen">
+
+body{
+  padding: 0;
+  margin: 0;
+    font-family: Arial, sans-serif;
+
+
+}
+
+
+    .navbar {
+      transition: background 0.5s ease-in-out;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 1) !important; /* Colore di sfondo senza opacità */
+    }
+
+    .nav-link {
+      font-size: 1rem; /* Imposta la dimensione del carattere */
+      white-space: nowrap; /* Evita il testo a capo */
+    }
+  .section1 {
+    background-image: url('figa.jpg'); /* Sostituisci 'percorso_dell_immagine.jpg' con il percorso dell'immagine */
+    background-size: cover; /* Adatta l'immagine per coprire l'intera area */
+    background-position: center; /* Centra l'immagine */
+    height: auto; /* Altezza della sezione */
+    display: flex;
+    justify-content: center; /* Centra in orizzontale */
+    align-items: center; /* Centra in verticale */
+    text-align: center; /* Allinea il testo al centro */
+    color: white; /* Colore del testo */
+  }
+
+  .text-box {
+    padding: 20px; /* Padding intorno al contenuto */
+  }
+
+.section1  h1 {
+    font-size: 2em; /* Dimensione del titolo */
+    margin-bottom: 10px; /* Margine inferiore per separare il titolo dalla descrizione */
+  }
+
+.section1  p {
+    font-size: 1.2em; /* Dimensione della descrizione */
+  }
+
+  /* Media query per desktop */
+  @media (min-width: 768px) {
+    .section1 {
+      height: 600px; /* Aumenta l'altezza della sezione per desktop */
+    }
+
+    .text-box {
+      max-width: 60%; /* Larghezza massima della casella di testo per evitare che si estenda troppo su desktop */
+    }
+
+  .section1  h1 {
+      font-size: 3em; /* Aumenta la dimensione del titolo su desktop */
+    }
+
+  .section1  p {
+      font-size: 1.5em; /* Aumenta la dimensione della descrizione su desktop */
+    }
+  }
+
+
+  .container1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50vh;
+  padding: 0 50px;
+  box-sizing: border-box;
+margin-left: auto;
+
+
+}
+
+.half {
+  width: 47%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid black 2px;
+  background-color: white;
+  border-radius: 5%
+
+
+}
+
+
+.content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.content  img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.content p {
+  margin-top: 10px;
+  text-align: justify;
+  margin: 3%;
+}
+
+/* Media query per rendere il layout responsive */
+@media (max-width: 950px) {
+  .container1 {
+    flex-direction: column;
+    height: auto;
+  }
+
+
+  .half {
+    width: 100%;
+    display: block;
+  }
+}
+
+
+
+
+.collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Due colonne */
+  grid-gap: 10px; /* Spazio tra le immagini */
+}
+
+.foto {
+  overflow: hidden;
+}
+
+.foto img {
+  width: 100%; /* Riempie completamente il contenitore */
+  height: auto;
+}
+
+
+
+.section{
+           display: block;
+           justify-content: space-around;
+           align-items: center;
+
+       }
+
+       .icon {
+           text-align: center;
+           opacity: 0;
+           transform: translateY(20px);
+           transition: opacity 0.5s, transform 0.5s;
+       }
+
+       .icon img {
+           width: 100%; /* Favicon occupa l'intera larghezza */
+           max-width: 100px; /* Limita la grandezza massima su desktop */
+           height: auto;
+           margin-bottom: 10px;
+           border-radius: 80%;
+       }
+
+       .icon div {
+           font-size: 14px;
+           font-weight: bold;
+           width: 100%;
+           padding: 0 30%;
+
+       }
+
+.banner{text-align: center;
+       font-size: bold 5%;
+     padding-top: 5vh;
+   padding-bottom: 5vh;
+background-color: lightblue;
+}
+
+
+
+     .section6 {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       margin-bottom: 40px;
+     }
+
+     .text6, .image6 {
+       padding: 20px;
+       text-align: center; /* Allinea il testo al centro sia su desktop che su mobile */
+     }
+
+     .image6 img {
+       width: 50%;
+       height: auto;
+     }
+
+     @media (min-width: 768px) {
+       .section6 {
+         flex-direction: row; /* Layout a riga su desktop */
+         justify-content: space-between; /* Allinea gli elementi ai bordi della sezione */
+       }
+
+       .section6:nth-child(even) {
+         flex-direction: row-reverse; /* Ordine inverso delle colonne per sezioni con indice pari su desktop */
+       }
+     }
+
+</style>

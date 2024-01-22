@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style media="screen">
+  body {
+    padding: 0;
+    margin: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden; /* Nasconde la barra di scorrimento orizzontale */
+  }
+
+  .navbar {
+
+    transition:  background 0.5s ease-in-out;
+  }
+
+  .navbar.scrolled {
+    background: #EBD9B4 !important; /* Colore di sfondo senza opacità */
+  }
+
+  .nav-link {
+    font-size: 1.5rem; /* Imposta la dimensione del carattere */
+    white-space: nowrap; /* Evita il testo a capo */
+  }
+
+      /* Stile per dispositivi mobili */
+
+  .section1{
+      height: 500px;
+ }
+
+  /* Sezione con testo su immagine di sfondo */
+  .background-image {
+      background-image: url('solo.jpeg');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 70vh; /* Altezza pari alla metà della finestra */
+  }
+
+  .text-over-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+  }
+
+  /* Sezione con carosello di immagini */
+    /* Modifica per centrare la sezione con l'immagine e il testo */
+  .section2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      text-align: center;
+  }
+
+  .image-with-text {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+  }
+
+  .image-with-text img {
+      width: 100%; /* Larghezza dell'immagine */
+      max-width: 50%;
+      height: auto;
+  }
+
+  .text-beside-image {
+      flex: 0 0 33%; /* Larghezza del testo considerando lo spazio vuoto */
+      padding: 0 20px; /* Aggiunge spazio tra il testo e l'immagine */
+      text-align: left; /* Allinea il testo a sinistra */
+  }
+
+  .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 100px; /* Aggiunge spazio tra le card */
+  }
+
+  .card {
+      perspective: 1000px;
+      width: 300px;
+      height: 500px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.5s;
+
+  }
+
+  /* Resto del tuo CSS rimane invariato */
+
+  .front img{  border-radius: 10%;
+  }
+
+  .front,
+  .back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      transition: transform 0.5s;
+      border-radius: 10%;
+     border: solid green 3px;
+  }
+
+
+
+  .front {
+      transform: rotateY(0deg);
+  }
+
+  .back {
+      transform: rotateY(180deg);
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+  }
+
+  .card:hover .front {
+      transform: rotateY(-180deg);
+  }
+
+  .card:hover .back {
+      transform: rotateY(0deg);
+  }
+
+  /* ... Altri stili CSS precedenti ... */
+
+  /* Media query per adattare la sezione 2 e le card su schermi più piccoli */
+  @media screen and (max-width: 768px) {
+      /* Modifiche per la sezione 2 */
+      .image-with-text {
+        width: 100%;
+         flex-direction: column;
+         align-items: center;
+     }
+
+     .image-with-text img {
+         width: 100%;
+         max-width: 50%;
+  height: auto;
+    }
+
+     .text-beside-image {
+         flex: 0 0 100%;
+         text-align: center; /* Allinea il testo al centro */
+         margin-bottom: 10%
+
+     }
+
+
+      /* Modifiche per le card */
+      .card-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px; /* Riduci lo spazio tra le card */
+
+      }
+      .card {
+          width: 100%; /* Riduci la larghezza delle card */
+          max-width: 100%; /* Imposta una larghezza massima per le card */
+          margin: 0 auto; /* Centra le card */
+          margin-bottom: 200px;
+
+      }
+      #carousel-container {
+        max-width: 100%; /* Larghezza massima del contenitore */
+        margin: 0; /* Per centrare il contenitore sulla pagina */
+        background-image: url("solo.jpeg");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+
+  }
+
+
+
+  .front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Adatta l'immagine alla dimensione del contenitore */
+      /* Aggiungi altri stili se necessario */
+  }
+
+
+  /* ... Altri stili CSS successivi ... */
+  #carousel-container {
+    max-width: 800px; /* Larghezza massima del contenitore */
+    margin: 200px auto; /* Per centrare il contenitore sulla pagina */
+    background-image: url("solo.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .glide {
+    overflow: hidden;
+  }
+
+  .glide__track {
+    white-space: nowrap;
+  }
+
+  .glide__slides {
+    display: flex;
+  }
+
+  .glide__slide {
+    flex: 0 0 180px; /* Larghezza fissa per ogni immagine */
+    margin-right: 10px; /* Spazio tra le immagini */
+  }
+
+  .glide__slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Aggiungi bordi arrotondati */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Aggiungi ombra */
+  }
+
+
+      footer {
+        background-color: #333;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap; /* Per gestire la responsività */
+        padding: 20px;
+      }
+
+      .footer-column {
+        flex: 1;
+        margin: 10px; /* Spazio tra le colonne */
+        text-align: center;
+      }
+
+      /* Stile aggiuntivo a tua discrezione */
+      .footer-column h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-column li {
+        margin-bottom: 8px;
+      }
+
+
+  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Sticky e Carosello di Immagini</title>
+</head>
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+    <!-- Sezione con testo su immagine di sfondo -->
+    <section id="home" class="section1">
+        <div class="background-image">
+            <div class="text-over-image">
+                <h1>Benvenuto!</h1>
+                <p>Testo descrittivo qui...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione con carosello di immagini -->
+
+    <!-- Altre sezioni... -->
+
+
+
+
+
+
+  <div id="carousel-container">
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <div class="glide__slides">
+          <!-- Inserisci qui le tue immagini come elementi con la classe "glide__slide" -->
+          <div class="glide__slide"><img src="solo.jpeg" alt="solo 1"></div>
+          <div class="glide__slide"><img src="solo.jpeg" alt="solo 2"></div>
+          <div class="glide__slide"><img src="solo.jpeg" alt="solo 3"></div>
+          <div class="glide__slide"><img src="solo.jpeg" alt="solo 3"></div>
+          <div class="glide__slide"><img src="solo.jpeg" alt="solo 3"></div>
+          <div class="glide__slide"><img src="solo.jpeg" alt="solo 3"></div>
+          <div class="glide__slide"><img src="solo.jpeg" alt="solo 3"></div>
+          <div class="glide__slide"><img src="solo.jpeg" alt="solo 3"></div>
+          <div class="glide__slide"><img src="solo.jpeg" alt="solo 3"></div>
+          <div class="glide__slide"><img src="solo.jpeg" alt="solo 3"></div>
+
+          <!-- Aggiungi altre immagini secondo necessità -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Sezione con testo a lato dell'immagine -->
+  <section id="chisono" class="section2">
+      <div class="image-with-text">
+          <img src="solo.jpeg" alt="Immagine con testo a lato">
+          <div class="text-beside-image">
+              <h2>perche me</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Testo descrittivo qui...</p>
+          </div>
+      </div>
+  </section>
+
+
+
+  <!-- ... Resto del codice ... -->
+  <div class="card-container" id="prezzi">
+      <div class="card">
+          <div class="front">
+              <img src="figa.jpg" alt="Immagine 1">
+          </div>
+          <div class="back">
+              <p>Descrizione 1</p>
+          </div>
+      </div>
+
+      <div class="card">
+          <div class="front">
+              <img src="immagine2.jpg" alt="Immagine 2">
+          </div>
+          <div class="back">
+              <p>Descrizione 2</p>
+          </div>
+      </div>
+
+      <div class="card">
+          <div class="front">
+              <img src="immagine3.jpg" alt="Immagine 3">
+          </div>
+          <div class="back">
+              <p>Descrizione 3</p>
+          </div>
+      </div>
+  </div>
+
+
+  <footer>
+    <div class="footer-column">
+      <h2>Contatti</h2>
+      <ul>
+        <li>Indirizzo: Via Example, 123</li>
+        <li>Email: info@example.com</li>
+        <li>Telefono: +123 456 789</li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h2>Link di Navigazione</h2>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Prodotti</a></li>
+        <li><a href="#">Servizi</a></li>
+        <!-- Aggiungi altri link di navigazione secondo necessità -->
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h2>Altro</h2>
+      <ul>
+        <li><a href="#">Termini e Condizioni</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Cookies</a></li>
+        <!-- Aggiungi altri collegamenti o informazioni secondo necessità -->
+      </ul>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const icons = document.querySelectorAll(".icon");
+
+        function handleScroll() {
+            icons.forEach(icon => {
+                const iconPosition = icon.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+
+                if (iconPosition < screenHeight * 0.8) {
+                    icon.style.opacity = 1;
+                    icon.style.transform = "translateY(0)";
+                }
+            });
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Trigger the animation on page load
+    });
+</script>
+<script>
+  $(document).ready(function() {
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 50) {
+        $('.navbar').addClass('scrolled');
+      } else {
+        $('.navbar').removeClass('scrolled');
+      }
+    });
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script>
+  new Glide('.glide', {
+    type: 'carousel',
+    startAt: 0,
+    perView: 3, // Numero di immagini visibili contemporaneamente
+    focusAt: 'center', // Focalizza sull'immagine centrale
+    gap: 20, // Spazio tra le immagini
+    autoplay: 1500, // Tempo di automazione in millisecondi (5 secondi)
+    hoverpause: true, // Pausa l'automazione quando l'utente passa sopra al carosello
+  }).mount();
+</script>
+</body>
+</html>
